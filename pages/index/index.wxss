@@ -1,0 +1,136 @@
+/**index.wxss**/
+page{
+  height: 100%;
+}
+.page{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative; 
+}
+.list_out_box{
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.list_in_box{
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 140rpx;
+}
+.go_cover{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+.list_item{
+  width: 345rpx;
+  height: 440rpx;
+  float: left;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+  background: #FFFFFF;
+  box-shadow: 0 4rpx 12rpx 0 rgba(0,0,0,0.20);
+  border-radius: 8rpx;
+  position: relative;
+}
+.list_item_img{
+  width: 100%;
+  height:265rpx;
+  position: relative;
+}
+.list_item_img image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.list_item_name{
+  width: 100%;
+  padding: 0 20rpx;
+  line-height: 42rpx;
+  height: 42rpx;
+  text-align: center;
+  font-size: 30rpx;
+  margin: 16rpx 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.list_residue_box{
+  width: 100%;
+  height: 38rpx;
+  position: relative;
+  padding: 0 20rpx;
+  margin: 40rpx 0 0;
+}
+.residue_num{
+  height: 38rpx;
+  line-height: 38rpx;
+  color: #ff6767;
+  font-size: 26rpx;
+  overflow: hidden;
+  float: left;
+}
+.buy_logo{
+  width: 38rpx;
+  height: 38rpx;
+  float: right;
+  background: url(http://ow5o1qil6.bkt.clouddn.com/pp_buy_logo_red.png) center center no-repeat;
+  background-size: 32rpx 32rpx;
+}
+/*  bottom  */
+.bottom_bar{
+  width: 100%;
+  height: 120rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #FFFFFF;
+  box-shadow: 0 4px 16px 0 rgba(0,0,0,0.30);
+  z-index: 9;
+}
+.user_box{
+  width: 50%;
+  height: 120rpx;
+  line-height: 120rpx;
+  position: relative;
+}
+.user_img{
+  width: 80rpx;
+  height: 80rpx;
+  display: block;
+  float: left;
+  margin: 20rpx 0 0 24rpx;
+  border-radius: 50%;
+}
+.user_icon{
+  width: 36rpx;
+  height: 36rpx;
+  float: left;
+  margin: 42rpx 0 0 10rpx;
+  background: url(http://ow5o1qil6.bkt.clouddn.com/pp_index_list_icon.png) center center no-repeat;
+  background-size: 36rpx 36rpx; 
+}
+.already_btn{
+  width: 240rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  position: absolute;
+  right: 24rpx;
+  top: 50%;
+  margin-top: -35rpx;
+  border-radius: 61rpx;
+  color: #fff;
+  font-size: 28rpx;
+  padding-left: 99rpx;
+  background: #ff6767 url(http://ow5o1qil6.bkt.clouddn.com/pp_buy_logo_white.png) 56rpx center no-repeat;
+  background-size: 32rpx 32rpx;
+}
+
+
+
+

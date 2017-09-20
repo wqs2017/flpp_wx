@@ -1,0 +1,56 @@
+
+<scroll-view scroll-y bindscroll="pageScroll" lower-threshold="" bindscrolltolower="addList" scroll-top="{{scrollTop}}" lower-threshold="100" style="z-index:999;position:relative;" scroll-with-animation="true" scroll-into-view="{{}}" class="page">
+
+<!--  list start  -->
+  <view class="list_out_box">
+
+    <view class="list_in_box">
+
+
+<!--  item  -->
+      <view class="list_item" wx:for="{{list}}" wx:key="item">
+        
+        <view bindtap="goDetail" data-id='{{item.good_id}}' class="go_cover"></view>
+        <view class="list_item_img">
+          <image wx:if="{{item.good_img}}" src="{{item.good_img}}"></image>
+        </view>
+
+        <view class="list_item_name">{{item.good_name}}</view>
+        
+        <view class="list_residue_box">
+          <view class="residue_num">剩余/{{item.sur_count}}</view>
+          <view class="buy_logo"></view>
+        </view>
+
+
+      </view> 
+<!--  item  -->
+
+    </view>
+    
+
+  </view>
+
+<!-- list end -->
+
+      <!-- bottom start -->
+
+      <view class="bottom_bar">
+
+        <view class="user_box" bindtap="goPersonal">
+        
+          <image wx:if="{{userInfo.avatarUrl}}" class="user_img" src="{{userInfo.avatarUrl}}"></image> 
+          <view wx:else class="user_img"></view>
+          <view class="user_icon"></view>
+
+        </view>
+        
+        <view bindtap="goBuy" class="already_btn">
+        已采购
+        </view>
+
+      </view>
+      <!-- bottom end  -->
+
+</scroll-view>
+

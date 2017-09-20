@@ -1,0 +1,58 @@
+<!--pages/passDetail/passDetail.wxml-->
+<view class='page'>
+
+  <!-- top start -->
+  <view class="top_img_box">
+
+    <image class="top_img" src="http://os5edz5i3.bkt.clouddn.com/xx_score_3.png"></image>
+    <view class="top_cover"></view>
+    <view class="top_text over_text">美汁源柠檬汁</view>
+
+  </view>
+  <!-- top end  -->
+
+  <!-- 剩余数量 start -->
+  <view class="product_num_box">
+
+  <view class="product_num product_num0">采购量：50</view>
+  <view class="product_num">剩余数量：40</view>
+
+  </view>
+  <!-- 剩余数量 end -->
+
+  <!-- 投放详情 start -->
+  <view class='detail_box'>
+
+    <view class="detail_title">投放详情</view>
+    
+    <view class="platform_item">
+
+      <image class="platform_img" src='http://ow5o1qil6.bkt.clouddn.com/pp_pt1.png'></image>
+      <view class="platform_text">饿了么</view>
+
+      <view class='add_sub add_icon0'></view>
+      <view class='add_num'>10</view>
+      <view class='add_sub sub_icon0'></view>
+
+
+    </view>
+
+    <view class="platform_item">
+
+      <image class="platform_img" src='http://ow5o1qil6.bkt.clouddn.com/pp_pt0.png'></image>
+      <view class="platform_text">美团外卖</view>
+
+      <view class='add_sub add_icon1'></view>
+      <view class='add_num'>10</view>
+      <view class='add_sub sub_icon1'></view>
+
+    </view>
+
+  </view>
+  <!-- 投放详情 end  -->
+
+
+  <!-- 投放结束 btn  -->
+  <view class="end_btn">投放结束</view>
+
+</view>

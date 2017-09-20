@@ -1,0 +1,45 @@
+<!--pages/personal/personal.wxml-->
+<view class="page">
+
+  <view class="fixed_cover"></view>
+  <!-- top start  -->
+  <view class="user_box">
+
+    <view class="user_img">
+      <image wx:if='{{userInfo.avatarUrl}}' src="{{userInfo.avatarUrl}}"></image>
+    </view>
+    <view class="user_name">{{userInfo.nickName}}</view>
+    <view wx:if="{{status == 2}}" class="user_audit_box" bindtap='goAudit'>
+    未认证
+    </view>
+    <view wx:elif="{{status == 0}}" class="user_audit_box" bindtap='goAudit'>
+    审核中
+    </view>
+    <view wx:elif="{{status == 1}}" class="user_audit_box" bindtap='goAudit'>
+    {{store}} {{score==0?'*':(score==1?'**':(score==2?'***':(score==3?'****':(score==4?'*****':(score== 'null' ?'*':'******')))))}}
+    </view>
+
+  </view>
+  <!-- top end  -->
+
+  <!-- bottom start  -->
+  <view class="bottom_box">
+
+    <view wx:if="{{status==2}}" class="audit_box" bindtap='goAudit'>
+
+      <view class="audit_img"></view>
+      <view class="audit_tip">认证身份信息，采购更多商品</view>
+
+    </view>
+    <view wx:else class="audit_box" bindtap='goAudit'>
+
+      <view class="audit_img audit_img0"></view>
+      <view class="audit_tip" style="color:#30b2fc;">点击查看认证信息</view>
+
+    </view>
+
+  </view>
+  <!-- bottom end  -->
+
+</view>
+

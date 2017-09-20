@@ -1,0 +1,40 @@
+
+.userinfo {
+  width: 100%;
+  height: 200rpx;
+  text-align: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 10rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+  display: block;
+}
+
+.wqs_data{
+  width:100%;
+  padding-bottom: 50rpx;
+  overflow: hidden;
+}
+.wqs_data text{
+  font-size: 30rpx;
+  width: 100%;
+  padding-left: 100rpx;
+  line-height: 100rpx;
+  color: #ccc;
+  display: block;
+}
+.log-list {
+  display: flex;
+  flex-direction: column;
+  padding: 40rpx;
+}
+.log-item {
+  margin: 10rpx;
+}

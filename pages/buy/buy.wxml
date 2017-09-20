@@ -1,0 +1,72 @@
+<!--pages/buy/buy.wxml-->
+<view class="page">
+
+
+  <view class="top_out_box">
+
+    <view bindtap="tabBtn" class="tab_btn tab_{{tabStatus==0?0:2}}" data-index="0">
+    进行中
+    </view>
+    <view bindtap="tabBtn" class="tab_btn tab_{{tabStatus==1?1:2}}" data-index="1">
+    已结束
+    </view>
+
+  </view>
+
+<!-- list start  -->
+  <view wx:if="{{list!=null}}" class="list_out_box">
+
+  <!-- 进行中 start  -->
+  <view wx:if="{{tabStatus==0}}" class="list_in_box">
+  
+
+    <view wx:for="{{list}}" wx:key="{{item}}" class="list_item_box">
+    
+    <view data-status='{{item.status}}' data-orderid='{{item.order_id}}' bindtap='goOrderDetail' class="item_cover"></view>
+    <view class="item_img">
+    <image wx:if="{{item.good_img}}" src='{{item.good_img}}'></image>
+    </view>
+
+    <view  class="item_name">{{item.good_name}}</view>
+    <view class="item_brand">品牌：{{item.brand}}</view>
+    <view wx:if="{{item.status==0}}" class="item_audit">审核中</view>
+    <view wx:elif="{{item.status==1}}" class="item_audit item_pass_out">未通过</view>
+    <view wx:elif="{{item.status==2}}" class="item_product_num">{{item.num}}份</view> 
+
+
+    </view>  
+
+
+  </view>
+  <!-- 进行中 end  -->
+
+
+  <!-- 已结束 start  -->
+  <view wx:elif="{{tabStatus==1}}" class="list_in_box">
+
+
+    <view wx:for="{{list}}" wx:key="{{item}}" class="list_item_box">
+    
+    <view class="item_img">
+    <image wx:if="{{item.good_img}}" src='{{item.good_img}}'></image>
+    </view>
+
+    <view class="item_name">{{item.good_name}}</view>
+    <view class="item_brand">品牌：{{item.brand}}</view>
+    <view class="item_product_num">派样结束</view>
+
+    </view>
+
+
+  </view>
+  <!-- 已结束 end  -->
+
+
+  </view>
+<!-- list end  -->
+
+<view wx:else class='list_out_box none_box'>
+暂时没有任何订单
+</view>
+
+</view>

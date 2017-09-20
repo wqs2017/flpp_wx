@@ -1,0 +1,25 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/test/test",
+    "pages/buy/buy",
+
+    "pages/productDetail/productDetail",
+
+    "pages/orderDetail/orderDetail",
+
+    "pages/passDetail/passDetail",
+
+    "pages/personal/personal",
+
+    "pages/audit/storeAudit"
+
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#F86566",
+    "navigationBarTitleText": "福利派派",
+    "navigationBarTextStyle":"white"
+  }
+}

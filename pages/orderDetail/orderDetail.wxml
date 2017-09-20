@@ -1,0 +1,60 @@
+<!--pages/orderDetail/orderDetail.wxml-->
+<view class="page" style="background:#f0f0f6;">
+  
+  <!-- 商品信息 start  -->
+  <view class="item_box">
+
+    <view class="product_top_box">
+      <image wx:if="{{product.good_img}}" class="product_img" src="{{product.good_img}}"></image>
+      <view class="product_name">{{product.good_name}}</view>
+      <view class="product_brand">品牌：{{product.brand}}</view>
+      <view class="product_num">{{orderData.num}}份</view>
+    </view>
+
+    <view class="text_box">
+      <view class="text_title">运费</view>
+      <view class="text_content">￥0.00</view>
+    </view>
+
+    <view class="text_box last_text">
+      <view class="text_title">金额</view>
+      <view class="text_content">￥0.00</view>
+    </view>
+
+  </view>
+  <!-- 商品信息 end  -->
+
+  <!-- 收货信息 start  -->
+  <view class="item_box">
+
+    <view class="text_box">
+      <view class="text_title">收货人姓名</view>
+      <view class="text_content">{{addr.username}}</view>
+    </view>
+
+    <view class="text_box">
+      <view class="text_title">电话<text>*</text></view>
+      <view class="text_content">{{addr.tel}}</view>
+    </view>
+
+    <view class="text_box last_text">
+      <view class="text_title">门店地址<text>*</text></view>
+      <view class="text_content">{{addr.addr}}</view>
+    </view>
+
+  </view>
+  <!-- 收货信息 end  -->
+
+  <!-- 下单时间 start -->
+  <view class="item_box" style="padding-bottom:120rpx;">
+    <view class="text_box">
+      <view class="text_title">下单日期</view>
+      <view class="text_content">{{orderData.send_date}}</view>
+    </view>
+  </view>
+  <!-- 下单时间 end  -->
+
+
+  <view wx:if="{{btnStatus== true}}" bindtap='orderBtn' class="sure_btn">确认</view>
+
+</view>

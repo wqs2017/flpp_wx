@@ -1,0 +1,121 @@
+<!--pages/productDetail/productDetail.wxml-->
+<view class="page">
+
+  <!-- top start -->
+  <view class="top_img_box">
+
+    <image wx:if="{{product.good_img}}" class="top_img" src="{{product.good_img}}"></image>
+    <view class="top_cover"></view>
+    <view class="top_text over_text">{{product.good_name}}</view>
+
+  </view>
+  <!-- top end  -->
+
+  <!-- 剩余数量 start -->
+  <view class="product_num_box">
+
+    <view class="product_name">
+      <view class="product_name_text">{{product.brand}}
+      <image wx:if="{{product.brand_img}}" src='{{product.brand_img}}'></image>
+      </view>
+    </view>
+
+    <view class="product_num">
+    {{product.sur_count}}<text>剩余</text>
+    </view>
+
+  </view>
+  <!-- 剩余数量 end -->
+
+  <!-- 限购  -->
+  <view class="buy_limit_box">
+  
+    <view class="limit_title">每店/每日限购</view>
+    <view class="limit_num over_text">{{product.limit_num}}份</view>
+
+  </view>
+  <!-- 限购end  -->
+
+  <!-- help start  -->
+  <view class="help_box">
+  
+    <view class="help_title">采购帮助</view>
+
+    <view class="help_text_box">
+      <view class="help_index">1</view>
+      <view class="help_text">选择采购数量</view>
+    </view>
+
+    <view class="help_text_box">
+      <view class="help_index">2</view>
+      <view class="help_text">下载产品图片</view>
+    </view>
+
+    <view class="help_text_box">
+      <view class="help_index">3</view>
+      <view class="help_text">建立赠品专区</view>
+    </view>
+
+    <view class="help_text_box">
+      <view class="help_index">4</view>
+      <view class="help_text">设置数量/上传产品图片</view>
+    </view>
+
+  </view>
+  <!-- help end  -->
+
+  <!-- save start  -->
+  <view class="save_img_box">
+  
+    <view class="save_title">
+    长按下载（保存）赠品图片
+    </view>
+
+    <view class="save_img_in_box">
+
+      <view wx:for="{{product.good_image}}" wx:key="item" class="image">
+        <image bindlongpress='savePic' src="{{item}}"></image>
+      </view>
+
+    </view>
+
+  </view>
+  <!-- save end  -->
+
+  <!-- fixed bottom start  -->
+  <view class="bottom_box">
+
+
+  <view class="bottom_left_box">
+
+    <view wx:if="{{limitNum<=5}}" class="sub_box sub_icon1"></view>
+    <view bindtap='subLimitNum' wx:else class="sub_box sub_icon0"></view>
+
+    <view class="order_number">{{limitNum}}</view>
+
+    <view wx:if="{{limitNum<product.limit_num}}" class="sub_box add_icon0" bindtap='addLimitNum'></view> 
+    <view wx:else class="sub_box add_icon1" ></view> 
+
+  </view>
+
+  <view bindtap="orderBtn" class="order_btn">
+  采购
+  </view>
+
+
+  </view>
+  <!-- fixed bottom start  -->
+
+
+  <!-- alert box start -->
+  <view class='alert_out_box'>
+
+    <view class='alert_in_box'>
+    
+    </view>
+
+  </view>
+  <!-- alert box end  -->
+
+
+</view>

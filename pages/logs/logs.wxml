@@ -1,0 +1,20 @@
+<!--logs.wxml-->
+<view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>   
+  </view>
+
+<view class="wqs_data">
+<text>姓名：王青松</text>
+<text>手机：18800191873</text>
+<text>微信：wqsongsong</text>
+<text>爱好：运动，唱歌，撸码</text>
+</view>
+
+
+
+<view class="container log-list">
+  <block wx:for="{{logs}}" wx:for-item="log" wx:key="*this">
+    <text class="log-item">{{index + 1}}. {{log}}</text>
+  </block>
+</view>
