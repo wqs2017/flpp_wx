@@ -261,3 +261,7 @@ page{
   font-size: 32rpx;
   text-align: center;
 }
+.input_holder{
+  color: #b2b2b2;
+}
+

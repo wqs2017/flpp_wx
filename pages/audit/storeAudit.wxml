@@ -10,7 +10,7 @@
       
       <view class='item_text_title item_title{{pageStatus}}'>品牌</view>
       <view class='item_input_box'>
-        <input  wx:if="{{pageStatus == 0 }}" bindblur='brandInput' value='{{info.brand}}' class='item_text' placeholder='请输入品牌名称'></input>  
+        <input placeholder-class='input_holder'  wx:if="{{pageStatus == 0 }}" bindblur='brandInput' value='{{info.brand}}' class='item_text' placeholder='请输入品牌名称'></input>  
         <view wx:elif="{{pageStatus == 1}}" class='item_text '>{{info.brand}}</view>
       </view>
 
@@ -21,7 +21,7 @@
       
       <view class='item_text_title item_title{{pageStatus}}'>门店</view>
       <view class='item_input_box'>
-        <input wx:if="{{pageStatus == 0}}" bindblur='storeInput' class='item_text' placeholder='请输入门店名称'></input>  
+        <input placeholder-class='input_holder' wx:if="{{pageStatus == 0}}" bindblur='storeInput' class='item_text' placeholder='请输入门店名称'></input>  
         <view wx:elif="{{pageStatus == 1}}" class='item_text'>{{info.store}}</view>
       </view>
 
@@ -32,7 +32,7 @@
       
       <view class='item_text_title item_title{{pageStatus}}'>门店地址</view>
       <view class='item_input_box'>
-        <input wx:if="{{pageStatus == 0}}" bindblur='addrInput' class='item_text item_input' placeholder='请输入门店地址'></input>  
+        <input placeholder-class='input_holder' wx:if="{{pageStatus == 0}}" bindblur='addrInput' class='item_text item_input' placeholder='请输入门店地址'></input>  
         <view wx:elif="{{pageStatus == 1}}" class='item_text'>{{info.store}}</view>
       </view>
 
@@ -43,7 +43,7 @@
       
       <view class='item_text_title item_title{{pageStatus}}'>所属区域</view>
       <view class='item_input_box'>
-        <input disabled wx:if="{{pageStatus == 0&&info.area==''}}" bindtap='areaPickerShow' class='item_text' placeholder='请输入所属区域'></input> 
+        <view disabled wx:if="{{pageStatus == 0&&info.area==''}}" bindtap='areaPickerShow' class='item_text' style="color:#b2b2b2;">请输入所属区域</view> 
         <view class='item_text' bindtap='areaPickerShow' wx:elif="{{pageStatus == 0}}">{{info.area}}</view> 
         <view wx:elif="{{pageStatus == 1}}" class='item_text'>{{info.area}}</view>
 
@@ -84,7 +84,7 @@
       
       <view class='item_text_title item_title{{pageStatus}}'>管理员</view>
       <view class='item_input_box'>
-        <input wx:if="{{pageStatus == 0}}" bindblur='usernameInput' class='item_text' placeholder='请输入管理员姓名'></input>  
+        <input placeholder-class='input_holder' wx:if="{{pageStatus == 0}}" bindblur='usernameInput' class='item_text' placeholder='请输入管理员姓名'></input>  
         <view wx:elif="{{pageStatus == 1}}" class='item_text'>{{info.username}}</view>
       </view>
 
@@ -95,7 +95,7 @@
       
       <view class='item_text_title item_title{{pageStatus}}'>手机号码</view>
       <view class='item_input_box'>
-        <input wx:if="{{pageStatus == 0}}" type='number' bindblur='telInput' class='item_text' placeholder='请输入手机号码'></input>  
+        <input placeholder-class='input_holder' wx:if="{{pageStatus == 0}}" type='number' bindblur='telInput' class='item_text' placeholder='请输入手机号码'></input>  
         <view wx:elif="{{pageStatus == 1}}" class='item_text'>{{info.tel}}</view>
       </view>
 
@@ -106,7 +106,7 @@
       
       <view class='item_text_title item_title{{pageStatus}}'>邀请码</view>
       <view class='item_input_box'>
-        <input wx:if="{{pageStatus == 0}}" type='number' bindblur='codeInput' class='item_text' placeholder='选填'></input>  
+        <input placeholder-class='input_holder' wx:if="{{pageStatus == 0}}" type='number' bindblur='codeInput' class='item_text' placeholder='选填'></input>  
         <view wx:elif="{{pageStatus == 1}}" class='item_text'>{{info.code!=null?info.code:'无'}}</view>
       </view>
 
