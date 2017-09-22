@@ -1,10 +1,3 @@
-# fulipaipai project
+# flpp_wx
 
-> A wx procedure project
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-```
+wqs flpp app
