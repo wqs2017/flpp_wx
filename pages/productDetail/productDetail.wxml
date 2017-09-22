@@ -11,17 +11,33 @@
   </view>
   <!-- top end  -->
 
+<!--中间部分 start  -->
+<view class="mid_box">
+
   <!-- 剩余数量 start -->
   <view class="product_num_box">
 
     <view class="product_name">
-      <view class="product_name_text">{{product.brand}}
-      <image wx:if="{{product.brand_img}}" src='{{product.brand_img}}'></image>
+     
+      <view class='limit_text_box'>
+      {{product.limit_num}}<text>份</text>
       </view>
+      <view class="limit_tip">每店/每日限购</view>
+      
     </view>
 
+    <view class="mid_y"></view>
+
     <view class="product_num">
-    {{product.sur_count}}<text>剩余</text>
+
+    <view class="product_num_text">
+    {{product.sur_count}}<text>份</text>
+    </view>
+    
+    <view class="product_num_tip">
+    剩余
+    </view>
+
     </view>
 
   </view>
@@ -30,11 +46,16 @@
   <!-- 限购  -->
   <view class="buy_limit_box">
   
-    <view class="limit_title">每店/每日限购</view>
-    <view class="limit_num over_text">{{product.limit_num}}份</view>
+      <view class="product_name_text">{{product.brand}}
+        <image wx:if="{{product.brand_img}}" src='{{product.brand_img}}'></image> 
+      </view>
+    <view class="limit_num over_text">认证企业</view>
 
   </view>
   <!-- 限购end  -->
+
+</view>
+<!-- 中间部分 end   -->
 
   <!-- help start  -->
   <view class="help_box">
@@ -74,7 +95,7 @@
     <view class="save_img_in_box">
 
       <view wx:for="{{product.good_image}}" wx:key="item" class="image">
-        <image bindlongpress='savePic' src="{{item}}"></image>
+        <image data-img='{{item}}' bindlongtap='saveImg' src="{{item}}"></image>
       </view>
 
     </view>

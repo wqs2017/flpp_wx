@@ -1,5 +1,5 @@
 
-<scroll-view scroll-y bindscroll="pageScroll" lower-threshold="" bindscrolltolower="addList" scroll-top="{{scrollTop}}" lower-threshold="100" style="z-index:999;position:relative;" scroll-with-animation="true" scroll-into-view="{{}}" class="page">
+<scroll-view scroll-y bindscroll="pageScroll" lower-threshold="" bindscrolltolower="addList" scroll-top="{{scrollTop}}" lower-threshold="200" style="z-index:999;position:relative;" scroll-with-animation="true" scroll-into-view="{{}}" class="page">
 
 <!--  list start  -->
   <view class="list_out_box">

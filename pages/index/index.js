@@ -55,6 +55,7 @@ Page({
           var list = res.data.messages.data;
           that.setData({
             list: list,
+            pageNum:1,
             pageTotal: res.data.messages.total_page
           })
         },
@@ -91,6 +92,9 @@ Page({
   addList:function(){
     var that=this;
     var pageNum = that.data.pageNum+1;
+    that.setData({
+      pageNum: pageNum,
+    })
     if(pageNum<=that.data.pageTotal){
       wx.showLoading({
         title: '加载中...',
@@ -109,7 +113,6 @@ Page({
           }
           that.setData({
             list: list,
-            pageNum: pageNum,
           })
 
         },

@@ -8,7 +8,10 @@
     <!--品牌  -->
     <view class='item_text_box'>
       
-      <view class='item_text_title item_title{{pageStatus}}'>品牌</view>
+      <view class='item_text_title item_title{{pageStatus}}'>
+      品牌
+      <text>*</text>
+      </view>
       <view class='item_input_box'>
         <input placeholder-class='input_holder'  wx:if="{{pageStatus == 0 }}" bindblur='brandInput' value='{{info.brand}}' class='item_text' placeholder='请输入品牌名称'></input>  
         <view wx:elif="{{pageStatus == 1}}" class='item_text '>{{info.brand}}</view>
@@ -19,7 +22,9 @@
     <!-- 门店名称  -->
     <view class='item_text_box'>
       
-      <view class='item_text_title item_title{{pageStatus}}'>门店</view>
+      <view class='item_text_title item_title{{pageStatus}}'>
+      门店<text>*</text>
+      </view>
       <view class='item_input_box'>
         <input placeholder-class='input_holder' wx:if="{{pageStatus == 0}}" bindblur='storeInput' class='item_text' placeholder='请输入门店名称'></input>  
         <view wx:elif="{{pageStatus == 1}}" class='item_text'>{{info.store}}</view>
@@ -30,7 +35,9 @@
     <!-- 门店地址  -->
     <view class='item_text_box'>
       
-      <view class='item_text_title item_title{{pageStatus}}'>门店地址</view>
+      <view class='item_text_title item_title{{pageStatus}}'>
+      门店地址<text>*</text>
+      </view>
       <view class='item_input_box'>
         <input placeholder-class='input_holder' wx:if="{{pageStatus == 0}}" bindblur='addrInput' class='item_text item_input' placeholder='请输入门店地址'></input>  
         <view wx:elif="{{pageStatus == 1}}" class='item_text'>{{info.store}}</view>
@@ -41,7 +48,9 @@
     <!-- 所属区域  -->
     <view class='item_text_box'>
       
-      <view class='item_text_title item_title{{pageStatus}}'>所属区域</view>
+      <view class='item_text_title item_title{{pageStatus}}'>
+      所属区域<text>*</text>
+      </view>
       <view class='item_input_box'>
         <view disabled wx:if="{{pageStatus == 0&&info.area==''}}" bindtap='areaPickerShow' class='item_text' style="color:#b2b2b2;">请输入所属区域</view> 
         <view class='item_text' bindtap='areaPickerShow' wx:elif="{{pageStatus == 0}}">{{info.area}}</view> 
@@ -82,7 +91,9 @@
     <!-- 管理员  -->
     <view class='item_text_box'>
       
-      <view class='item_text_title item_title{{pageStatus}}'>管理员</view>
+      <view class='item_text_title item_title{{pageStatus}}'>
+      管理员<text>*</text>
+      </view>
       <view class='item_input_box'>
         <input placeholder-class='input_holder' wx:if="{{pageStatus == 0}}" bindblur='usernameInput' class='item_text' placeholder='请输入管理员姓名'></input>  
         <view wx:elif="{{pageStatus == 1}}" class='item_text'>{{info.username}}</view>
@@ -93,7 +104,9 @@
     <!-- 手机号码  -->
     <view class='item_text_box'>
       
-      <view class='item_text_title item_title{{pageStatus}}'>手机号码</view>
+      <view class='item_text_title item_title{{pageStatus}}'>
+      手机号码<text>*</text>
+      </view>
       <view class='item_input_box'>
         <input placeholder-class='input_holder' wx:if="{{pageStatus == 0}}" type='number' bindblur='telInput' class='item_text' placeholder='请输入手机号码'></input>  
         <view wx:elif="{{pageStatus == 1}}" class='item_text'>{{info.tel}}</view>
@@ -104,7 +117,9 @@
     <!-- 邀请码  -->
     <view class='item_text_box'>
       
-      <view class='item_text_title item_title{{pageStatus}}'>邀请码</view>
+      <view class='item_text_title item_title{{pageStatus}}'>
+      邀请码<text>*</text>
+      </view>
       <view class='item_input_box'>
         <input placeholder-class='input_holder' wx:if="{{pageStatus == 0}}" type='number' bindblur='codeInput' class='item_text' placeholder='选填'></input>  
         <view wx:elif="{{pageStatus == 1}}" class='item_text'>{{info.code!=null?info.code:'无'}}</view>
@@ -125,7 +140,7 @@
 
       <view class='platform_title'>
       请选择入住的外卖平台
-        <text class="platform_title_tip">选填</text>
+        <!-- <text class="platform_title_tip">选填</text> -->
       </view>
 
       <view class="platform_tag_box">
@@ -182,8 +197,8 @@
 
       <view class='upload_text'>{{pageStatus == 0?'管理员手持身份证人相面':'身份证'}}</view>
 
-      <view wx:if="{{pageStatus == 0}}" data-index='0' bindtap='uploadImg' class='upload_btn'>拍照上传</view>
-
+      <view wx:if="{{pageStatus == 0&&imgUploadStatus[0]==0}}" data-index='0' bindtap='uploadImg' class='upload_btn'>拍照上传</view>
+      <view wx:if="{{pageStatus == 0&&imgUploadStatus[0]==1}}" class='upload_btn uploading'>正在上传</view>
     </view>
     <!-- 上传图片 item end  -->
 
@@ -199,8 +214,8 @@
 
       <view class='upload_text'>{{pageStatus == 0?'上传营业执照(选填)':'营业执照'}}</view>
 
-      <view wx:if="{{pageStatus == 0}}" data-index='1' bindtap='uploadImg' class='upload_btn'>拍照上传</view>
-
+      <view wx:if="{{pageStatus == 0&&imgUploadStatus[1]==0}}" data-index='1' bindtap='uploadImg' class='upload_btn'>拍照上传</view>
+      <view wx:if="{{pageStatus == 0&&imgUploadStatus[1]==1}}" class='upload_btn uploading'>正在上传</view>
     </view>
     <!-- 上传图片 item end  -->
 
@@ -216,7 +231,8 @@
 
       <view class='upload_text'>{{pageStatus == 0?'上传门头照片(选填)':'门头照片'}}</view>
 
-      <view wx:if="{{pageStatus == 0}}" data-index='2' bindtap='uploadImg' class='upload_btn'>拍照上传</view>
+      <view wx:if="{{pageStatus == 0&&imgUploadStatus[2]==0}}" data-index='2' bindtap='uploadImg' class='upload_btn'>拍照上传</view>
+      <view wx:if="{{pageStatus == 0&&imgUploadStatus[2]==1}}" class='upload_btn uploading'>正在上传</view>
 
     </view>
     <!-- 上传图片 item end  -->
@@ -233,7 +249,8 @@
 
       <view class='upload_text'>{{pageStatus == 0?'上传品牌LOGO(选填)':'品牌LOGO'}}</view>
 
-      <view wx:if="{{pageStatus == 0}}" data-index='3' bindtap='uploadImg' class='upload_btn'>拍照上传</view>
+      <view wx:if="{{pageStatus == 0&&imgUploadStatus[3]==0}}" data-index='3' bindtap='uploadImg' class='upload_btn'>拍照上传</view>
+      <view wx:if="{{pageStatus == 0&&imgUploadStatus[3]==1}}" class='upload_btn uploading'>正在上传</view>
 
     </view>
     <!-- 上传图片 item end  -->
@@ -245,6 +262,6 @@
 
   <!-- 认证btn -->
   <view wx:if="{{info.brand ==''||info.store ==''||info.addr ==''||info.area ==''||info.username ==''||info.tel ==''||info.platform == ''||info.platform==[0,0,0,0,0]||info.idcard==''}}" class='audit_btn' bindtap='auditAlertTip'>认证</view>
-  <view bindtap='auditBtn' wx:elif="{{pageStatus == 0}}" class='audit_btn' style="background:#F86566;">认证</view>
+  <view bindtap='auditTap' wx:elif="{{pageStatus == 0}}" class='audit_btn' style="background:#F86566;">认证</view>
   <view wx:else hidden=''></view>
 </view>

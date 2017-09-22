@@ -9,7 +9,7 @@ Page({
     btnStatus:true,
     orderData:{
       num: 1,
-      send_date:'',
+      send_date: (new Date().toLocaleDateString()).replace(/\//g, '.'),
       good_id:''
     },
     orderId:'',

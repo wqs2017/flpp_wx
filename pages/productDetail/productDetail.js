@@ -162,21 +162,24 @@ Page({
     return new Date(Date.UTC(year, month - 1, 1)).getDay();
   },
   // 保存图片
-  savePic:function(){
+  saveImg:function(e){
+    var img = e.currentTarget.dataset.img;
+    console.log(img);
+    // 'http://os5edz5i3.bkt.clouddn.com/xx_score_3.png'
     wx.getImageInfo({
-      src:'http://os5edz5i3.bkt.clouddn.com/xx_score_3.png',
+      src:img,
       success:function(res){
         console.log(res);
         var path = res.path;
         wx.showModal({
           title: '是否保存图片',
-          content: '',
           success: function (res) {
             if (res.confirm) {
               wx.saveImageToPhotosAlbum({
                 filePath: path,
                 success: function (res) {
                   console.log(res);
+                  console.log('保存成功')
                   wx.showToast({
                     title: '保存成功',
                     icon: 'success',

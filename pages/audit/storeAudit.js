@@ -41,16 +41,29 @@ Page({
     city:'',
     pickerStatus:false,
     pickerValue:[0,0],
+    imgUploadStatus:[0,0,0,0],
   },
 
   uploadImg:function(e){
     var that = this;
     var index = e.currentTarget.dataset.index;
+    wx.showLoading({
+      title: '正在上传',
+    })
     wx.chooseImage({
       count: 1,
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
       success: function (res) {
+        wx.showLoading({
+          title: '正在上传',
+        });
+        var arr = that.data.imgUploadStatus;
+        arr[index] = 1
+        that.setData({
+          imgUploadStatus:arr
+        })
+        console.log('选择图片了');
         wx.uploadFile({
           url: 'https://flpp.shanshizhe.cn' + '/uploadFile',
           filePath: res.tempFilePaths[0],
@@ -61,6 +74,9 @@ Page({
           formData: {},
           success: function (res) {
             console.log(res); 
+            setTimeout(function(){
+              wx.hideLoading();
+            },1000)
             var data = JSON.parse(res.data);
             console.log(data);
             if(index==0){
@@ -80,10 +96,27 @@ Page({
                 'info.logo': data.messages.img
               })
             }
+            arr[index] = 0
+            that.setData({
+              imgUploadStatus: arr
+            })
             console.log('上传返回结果')
+          },
+          fail:function(){
+            wx.showModal({
+              title: '上传失败',
+            })
+          },
+          complete:function(){
+            wx.hideLoading();
           }
         })
-      }
+      },
+      fail:function(){
+        setTimeout(function () {
+          wx.hideLoading();
+        }, 1000)
+      },
     })
 
   },
@@ -280,11 +313,15 @@ Page({
       content: '',
     })
   },
-  auditBtn:function(){
+  auditTap:function(){
     var that = this;
+    console.log('点击')
+    that.setData({
+      pageStatus:1,
+    })
     app.request({
-      url:'	/user/perfectUserInfo',
-      data:that.data.info,
+      url:'/user/perfectUserInfo',
+      data: that.data.info,
       success: function (res) {
         console.log(res);
         if(res.data.errorcode ==200){
@@ -306,7 +343,7 @@ Page({
             showCancel: false,
             success: function (res) {
               wx.navigateBack({
-                delta: 1
+                delta: 2
               });
             }
           })
@@ -314,6 +351,6 @@ Page({
 
       }
     })
-  },
+  }
 
 })

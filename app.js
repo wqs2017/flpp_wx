@@ -9,9 +9,6 @@ App({
   reqUrl:'https://flpp.shanshizhe.cn',
   login:function(cb){
     var that = this
-    if(this.globalData.userInfo){
-      typeof cb == "function" && cb(this.globalData.userInfo)
-    }else{
       //调用登录接口
       wx.login({
         success: function (res) {
@@ -26,17 +23,18 @@ App({
               },
               success:function(res){
                 console.log(res);
+                console.log('登录')
                 // 获得sessionID
                 that.globalData.sessionID = res.data.messages.third_session;
                 //  获取用户信息
                 wx.getUserInfo({
                   success: function (res) {
                     that.globalData.userInfo = res.userInfo;
-                    typeof cb == "function" && cb(that.globalData.userInfo);
+                    typeof cb == "function" && cb(that.globalData.userInfo, that.globalData.sessionID);
                   },
                   fail: function (res) {
                     that.loginFail(function (userInfo) {
-                      typeof cb == "function" && cb(that.globalData.userInfo);
+                      typeof cb == "function" && cb(that.globalData.userInfo, that.globalData.sessionID);
                     });
                   },
                   complete: function (res) {
@@ -74,7 +72,7 @@ App({
 
         }
       })
-    }
+    
   },
   // 封装请求
   request: function (obj) {
@@ -82,10 +80,10 @@ App({
     obj.data = obj.data || {};
     obj.url = that.reqUrl + obj.url;
     obj.method = obj.method || 'POST';
-    that.getSessionID(function () {
+    that.getSessionID(function (sessionID) {
       obj.header = {
         'content-type': 'application/x-www-form-urlencoded',
-        'third_session': that.globalData.sessionID
+        'third_session': sessionID
       };
       wx.request(obj);
     })
@@ -93,21 +91,26 @@ App({
   // 获取sessionID
   getSessionID: function (cb) {
     var that = this
-    wx.checkSession({
-      success: function () {
-        if (that.globalData.sessionID) {
+    wx.request({
+      url: that.reqUrl+'/user/checkSession',
+      method:'POST',
+      header:{
+        'content-type': 'application/x-www-form-urlencoded',
+        'third_session': that.globalData.sessionID
+      },
+      success:function(res){
+        if(res.data.errorcode == 200){
           cb(that.globalData.sessionID)
-        } else {
-          console.log(123);
-          // that.login((sessionID) => {
-          //   cb(sessionID)
-          // })
+        }else{
+          that.login(function(userInfo){
+            cb(that.globalData.sessionID)
+          })
         }
       },
-      fail: function () {
-        // that.login((sessionID) => {
-        //   cb(sessionID)
-        // })
+      fail:function(){
+        wx.showModal({
+          title: '请求失败',
+        })
       }
     })
   },

@@ -4,9 +4,9 @@
   <!-- top start -->
   <view class="top_img_box">
 
-    <image class="top_img" src="http://os5edz5i3.bkt.clouddn.com/xx_score_3.png"></image>
+    <image wx:if="{{order.good_img}}" class="top_img" src="{{order.good_img}}"></image>
     <view class="top_cover"></view>
-    <view class="top_text over_text">美汁源柠檬汁</view>
+    <view class="top_text over_text">{{order.good_name}}</view>
 
   </view>
   <!-- top end  -->
@@ -14,8 +14,8 @@
   <!-- 剩余数量 start -->
   <view class="product_num_box">
 
-  <view class="product_num product_num0">采购量：50</view>
-  <view class="product_num">剩余数量：40</view>
+  <view class="product_num product_num0">采购量：{{order.num}}</view>
+  <view class="product_num">剩余数量：{{totalClickNum-nowNum}}</view>
 
   </view>
   <!-- 剩余数量 end -->
@@ -23,9 +23,44 @@
   <!-- 投放详情 start -->
   <view class='detail_box'>
 
-    <view class="detail_title">投放详情</view>
+    <view class="detail_title" bindtap='uploadImg'>投放详情</view>
     
-    <view class="platform_item">
+    <view class="platform_out_box" wx:for="{{platform}}" wx:key="item">
+      <view wx:if="{{item == 1}}" class="platform_item">
+
+        <image class="platform_img" src='http://ow5o1qil6.bkt.clouddn.com/pp_pt{{index}}.png'></image>
+        <view class="platform_text">         
+        {{index==0?'美团外卖':(index==1?'饿了么':(index==2?'百度外卖':(index==3?'口碑外卖':'其他')))}} 
+        </view>
+        
+        <view data-index='{{index}}' bindtap='addNum' wx:if="{{(totalClickNum-nowNum)>0}}" class='add_sub add_icon0'></view>
+        <view wx:else class='add_sub add_icon1'></view>
+        <view class='add_num'>{{clickNum[index]}}</view>
+        <view data-index='{{index}}' bindtap='subNum' wx:if="{{clickNum[index]>=1}}" class='add_sub sub_icon0'></view>
+        <view wx:else class='add_sub sub_icon1'></view>
+
+      </view>
+
+      <!-- 平台凭证  -->
+      <view bindtap='uploadImg' data-index='{{index}}' wx:if="{{item == 1}}" class="upload_img_box">
+
+        <view class="upload_img">
+        <image wx:if="{{imgs[index]==''}}" src="http://ow5o1qil6.bkt.clouddn.com/pp_gray_bg.png"></image>
+        <image wx:else src='{{imgs[index]}}'></image>
+        </view>
+        <view wx:if="{{uploadStatus[index]==0}}" class="upload_text">
+        上传凭证
+        </view>
+         <view wx:if="{{uploadStatus[index]==1}}" class="upload_text gray_bg">
+        正在上传
+        </view>
+      </view>
+      <!-- 平台凭证  -->
+
+    </view>
+
+
+    <!-- <view class="platform_item">
 
       <image class="platform_img" src='http://ow5o1qil6.bkt.clouddn.com/pp_pt1.png'></image>
       <view class="platform_text">饿了么</view>
@@ -35,24 +70,14 @@
       <view class='add_sub sub_icon0'></view>
 
 
-    </view>
-
-    <view class="platform_item">
-
-      <image class="platform_img" src='http://ow5o1qil6.bkt.clouddn.com/pp_pt0.png'></image>
-      <view class="platform_text">美团外卖</view>
-
-      <view class='add_sub add_icon1'></view>
-      <view class='add_num'>10</view>
-      <view class='add_sub sub_icon1'></view>
-
-    </view>
+    </view> -->
 
   </view>
   <!-- 投放详情 end  -->
 
 
   <!-- 投放结束 btn  -->
-  <view class="end_btn">投放结束</view>
+  <view bindtap='endBtn' wx:if="{{(totalClickNum-nowNum) == 0}}" class="end_btn">投放结束</view>
+  <view wx:else class='end_btn' style="background:#c9c9c9;">投放结束</view>
 
 </view>

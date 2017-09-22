@@ -1,5 +1,5 @@
 <!--pages/buy/buy.wxml-->
-<view class="page">
+<scroll-view scroll-y lower-threshold="" bindscrolltolower="addList" scroll-top="{{scrollTop}}" lower-threshold="200" class="page">
 
 
   <view class="top_out_box">
@@ -69,4 +69,4 @@
 暂时没有任何订单
 </view>
 
-</view>
+</scroll-view>

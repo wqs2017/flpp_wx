@@ -93,4 +93,44 @@ page{
   width: 100%;
   text-align: center;
 }
+.bottom_bg{
+  width: 750rpx;
+  height: 2824rpx;
+  margin: 0 auto;
+  position: relative;
+  background: url(http://ow5o1qil6.bkt.clouddn.com/pp_jianjie.png) center center no-repeat;
+  background-size: 100% 100%;
+}
 
+.store_score,.store_name{
+  display: block;
+  float: left;
+  color: #fff;
+}
+.store_name{
+  margin-right: 5rpx;
+}
+.store_score{
+  margin-left: 5rpx;
+}
+.star_box{
+  float: left;
+  display: block;
+  height: 56rpx;
+  width: 32rpx;
+  position: relative;
+}
+.star{
+  width:22rpx;
+  height:22rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -11rpx 0 0 -11rpx;
+  background: url(http://ow5o1qil6.bkt.clouddn.com/pp_store_star.png) center center no-repeat;
+  background-size: 22rpx 22rpx;
+}
+.white_star{
+  background: url(http://ow5o1qil6.bkt.clouddn.com/pp_white_star.png) center center no-repeat;
+  background-size: 22rpx 22rpx;
+}

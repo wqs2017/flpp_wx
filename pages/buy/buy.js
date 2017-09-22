@@ -12,6 +12,53 @@ Page({
     totalPage:1,
     list:null,
   },
+  addList:function(){
+    console.log('addlist')
+    var that = this;
+    var pageNum = that.data.pageNum+1;
+    that.setData({
+      pageNum:pageNum
+    })
+    if(pageNum<=that.data.totalPage){
+      that.addRequest();
+    }
+  },
+  addRequest:function(){
+    var that = this;
+    wx.showLoading({
+      title: '加载中...',
+    })
+    app.request({
+      url: '/index/getOrders',
+      data: {
+        pageNum: that.data.pageNum,
+        type: that.data.type,
+      },
+      success: function (res) {
+        wx.hideLoading();
+        that.setData({
+          tabStatus: index,
+        })
+        if (res.data.errorcode == 200) {
+          var newData = res.data.messages.data;
+          var data = that.data.list;
+          for(var i=0;i<newData.length;i++){
+            data.push(newData[i]);
+          }
+          that.setData({
+            list: data,
+            totalPage: res.data.messages.total_page,
+          })
+        } else {
+          wx.showModal({
+            title: res.data.messages.errorinfo,
+            showCancel: false,
+          })
+        }
+
+      }
+    })
+  },
   // 切换加载及首次
   loadData:function(index){
     console.log('index'+index);

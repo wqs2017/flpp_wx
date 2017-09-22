@@ -37,36 +37,78 @@
   font-size: 36rpx;
 }
 
-
+.mid_box{
+  width: 100%;
+  overflow: hidden;
+  background: #f0f0f6;
+}
+.mid_y{
+  width: 2rpx;
+  background: #e6e7e8;
+  height: 120rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -60rpx 0 0 -1rpx;
+}
 .product_num_box{
   width: 100%;
-  height: 100rpx;
+  height: 140rpx;
   position: relative;
   background: #FFFFFF;
-  box-shadow: 0 4rpx 12rpx 0 rgba(0,0,0,0.30);
+  /* box-shadow: 0 4rpx 12rpx 0 rgba(0,0,0,0.30); */
+  margin-bottom: 12rpx;
 }
 .product_name{
   width: 50%;
   height: 100%;
-  line-height: 100rpx;
   position: relative;
   text-align: center;
   float: left;
 }
+.limit_text_box{
+  width: 100%;
+  line-height: 66rpx;
+  position: absolute;
+  left: 0;
+  top: 18rpx;
+  color: #f86566;
+  font-size: 48rpx;
+  font-weight: 600;
+}
+.limit_text_box text{
+  font-size: 28rpx;
+  line-height: 80rpx;
+  font-weight: 400;
+}
+.limit_tip,.product_num_tip{
+  width: 100%;
+  height: 34rpx;
+  line-height: 34rpx;
+  position: absolute;
+  left: 0;
+  top: 86rpx;
+  color: #a5a5a5;
+  font-size: 24rpx;
+}
+
 .product_name_text{
-  padding-left: 46rpx;
-  height: 100rpx;
-  line-height: 100rpx;
-  display: inline-block;
-  position: relative;
+  padding-left: 116rpx;
+  height: 125rpx;
+  line-height: 125rpx;
+  display: block;
+  position: absolute;
+  left: 24rpx;
+  font-size: 34rpx;
+  top: 0;
 }
 .product_name_text image{
-  width: 32rpx;
-  height: 32rpx;
+  width: 100rpx;
+  height: 100rpx;
   position: absolute;
   left: 0;
   top: 50%;
-  margin-top: -16rpx;
+  margin-top: -50rpx;
   border-radius: 50%;
   display: block;
   border: 1rpx solid #e6e7e8;
@@ -79,29 +121,44 @@
   text-align: center;
   float: right;
   font-size: 48rpx;
-  line-height: 100rpx;
   color: #F86566;
 }
-.product_num text{
-  font-size: 24rpx;
-  line-height: 128rpx;
-  color: #F86566;
+.product_num_text{
+  width: 100%;
+  height: 66rpx;
+  position: absolute;
+  left: 0;
+  top: 18rpx;
+  line-height: 66rpx;
+  font-size: 48rpx;
+  color: #68E57D;
+  font-weight: 600; 
+}
+.product_num_text text{
+  color: #68E57D;
+  font-size: 28rpx;
+  line-height: 80rpx;
+  font-weight: 400;
 }
 
 .buy_limit_box{
-  width: 702rpx;
+  width: 100%;
   height: 125rpx;
   line-height: 125rpx;
+  background: #fff url(http://ow5o1qil6.bkt.clouddn.com/pp_brand_bg.png) center center no-repeat;
+  background-size: 100% 100%;
   position: relative;
   border-bottom: 1rpx solid #e6e7e8;
-  margin: 0 auto;
+  margin: 0 auto 12rpx;
+  padding: 0 24rpx
 }
 .limit_title{
   width: 50%;
   height: 100%;
   line-height: 125rpx;
   position: absolute;
-  left:0;
+  left:24rpx;
+  top: 0;
   font-size: 32rpx;
 }
 .limit_num{
@@ -109,9 +166,10 @@
   height: 100%;
   line-height: 125rpx;
   position: absolute;
-  right:0;
-  font-size: 32rpx;
-  color: #f86566;
+  right:24rpx;
+  top: 0;
+  font-size: 28rpx;
+  color: #BFAA4B;
   text-align: right;
 }
 

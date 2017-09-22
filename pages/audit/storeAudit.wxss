@@ -26,6 +26,9 @@ page{
   font-size: 30rpx;
   color: #b2b2b2;
 }
+.item_text_title text{
+  color: #F86566;
+}
 .item_input_box{
   width: 426rpx;
   overflow: hidden;
@@ -100,7 +103,6 @@ page{
   width: 200rpx;
   margin: 30rpx 15rpx 0;
   height: 76rpx;
-  background: #ddd;
   text-align: center;
   line-height: 76rpx;
   color: #fff;
@@ -111,6 +113,7 @@ page{
   width: 200rpx;
   height: 76rpx;
   background: #ddd;
+  border-radius: 8rpx;
   text-align: center;
   line-height: 76rpx;
   color: #fff;
@@ -203,6 +206,10 @@ page{
   border-radius: 10rpx;
   margin: 0 auto 60rpx;
   position: relative;
+  font-size: 32rpx;
+}
+.uploading{
+  background: #c9c9c9;
 }
 
 .audit_btn{
