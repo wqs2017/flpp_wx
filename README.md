@@ -1,3 +1,3 @@
 # flpp_wx
 
-wqs flpp app
+wqs flpp app ~
